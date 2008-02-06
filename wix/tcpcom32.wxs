@@ -23,15 +23,16 @@
 								<Shortcut Id="startmenuTCPCOM32" Directory="ProgramMenuDir" Name="TCPCOM32" Icon="TCPCOM32.EXE" IconIndex="0" />
 								<Shortcut Id="desktopTCPCOM32" Directory="DesktopFolder" Name="TCPCOM32" Icon="TCPCOM32.EXE" IconIndex="0" />
 							</File>
+							<File Id='TCPCOM32INI' Name='TCPCOM32.INI' DiskId='1' Source='..\tcpcom32.ini' Vital='yes' />
 <!--						<Registry Id='TcpCom32RegXxx' Root='HKLM' Key='Software\mep\TcpCom32' Name='Xxx'
 								Action='write' Type='string' Value='xxx' />
 -->						</Component>
 
 						<Component Id='TCPCOM32DOC' Guid='12345678-1234-1234-1234-123456789012'>
-							<File Id='DCB' Name='DCB.TXT' DiskId='1' Source='..\DCB.TXT'>
+							<File Id='DCBTXT' Name='DCB.TXT' DiskId='1' Source='..\DCB.TXT'>
 								<Shortcut Id="startmenuDCB" Directory="ProgramMenuDir" Name="DCB" />
 							</File>
-							<File Id='HOWTO' Name='HTTP.TXT' DiskId='1' Source='..\HTTP.TXT'>
+							<File Id='HOWTOTXT' Name='HTTP.TXT' DiskId='1' Source='..\HTTP.TXT'>
 								<Shortcut Id="startmenuHOWTO" Directory="ProgramMenuDir" Name="HowTo" />
 							</File>
 						</Component>
