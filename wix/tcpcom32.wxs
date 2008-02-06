@@ -1,0 +1,75 @@
+<?xml version='1.0'?>
+
+<Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
+
+	<Product Id='12345678-1234-1234-1234-123456789012' Name='TCPCOM32' Language='1033' 
+		Version='1.0.0.0' Manufacturer='mep'>
+
+		<Package Id='????????-????-????-????-????????????'
+			Description='TCPCOM32 Installer'
+			Comments='TCPCOM32 Windows Installer'
+			Manufacturer='mep' InstallerVersion='200' Compressed='yes' />
+ 
+		<Media Id='1' Cabinet='tcpcom32.cab' EmbedCab='yes' />
+
+		<Directory Id='TARGETDIR' Name='SourceDir'>
+			
+			<Directory Id='ProgramFilesFolder' Name='PFiles'>
+				<Directory Id='ORGANIZATIONDIR' Name='mep'>
+					<Directory Id='INSTALLDIR' Name='TCPCOM32'>
+			
+						<Component Id='MainExecutable' Guid='12345678-1234-1234-1234-123456789012'>
+							<File Id='TCPCOM32EXE' Name='TCPCOM32.EXE' DiskId='1' Source='..\Release\tcpcom32.exe' Vital='yes'>
+								<Shortcut Id="startmenuTCPCOM32" Directory="ProgramMenuDir" Name="TCPCOM32" Icon="TCPCOM32.EXE" IconIndex="0" />
+								<Shortcut Id="desktopTCPCOM32" Directory="DesktopFolder" Name="TCPCOM32" Icon="TCPCOM32.EXE" IconIndex="0" />
+							</File>
+<!--						<Registry Id='TcpCom32RegXxx' Root='HKLM' Key='Software\mep\TcpCom32' Name='Xxx'
+								Action='write' Type='string' Value='xxx' />
+-->						</Component>
+
+						<Component Id='TCPCOM32DOC' Guid='12345678-1234-1234-1234-123456789012'>
+							<File Id='DCB' Name='DCB.TXT' DiskId='1' Source='..\DCB.TXT'>
+								<Shortcut Id="startmenuDCB" Directory="ProgramMenuDir" Name="DCB" />
+							</File>
+							<File Id='HOWTO' Name='HTTP.TXT' DiskId='1' Source='..\HTTP.TXT'>
+								<Shortcut Id="startmenuHOWTO" Directory="ProgramMenuDir" Name="HowTo" />
+							</File>
+						</Component>
+						
+					</Directory>
+				</Directory>
+			</Directory>
+
+			<Directory Id="ProgramMenuFolder" Name="PMenu" LongName="Programs">
+				<Directory Id="ProgramMenuDir" Name='TCPCOM32' />
+			</Directory>
+
+			<Directory Id="DesktopFolder" Name="Desktop" />
+			
+		</Directory>
+  
+		<Feature Id='Complete' Title='TCPCOM32' Description='The complete package.'
+			Display='expand' Level='1' ConfigurableDirectory='INSTALLDIR'>
+		
+			<Feature Id='MainProgram' Title='Program Files' Description='The main executable.' Level='1'>
+				<ComponentRef Id='MainExecutable' />
+			</Feature>
+
+			<Feature Id='Documentation' Title='Documentation' Description='The instruction manual.' Level='1000'>
+				<ComponentRef Id='TCPCOM32DOC' />
+			</Feature>
+		
+		</Feature>
+<!--
+		<Property Id="WIXUI_INSTALLDIR" Value="mep" />
+		<UIRef Id="WixUI_InstallDir" />
+-->
+		<UIRef Id="WixUI_Mondo" />
+		<UIRef Id="WixUI_ErrorProgressText" />
+
+		<Icon Id="TCPCOM32.EXE" SourceFile="..\Release\tcpcom32.exe" />
+
+	</Product>
+	
+</Wix>
+

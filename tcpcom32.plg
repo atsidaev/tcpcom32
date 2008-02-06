@@ -1,0 +1,95 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: tcpcom32 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x410 /fo"Release/tcpcom32.res" /d "NDEBUG" "C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\tcpcom32.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSPA9.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/tcpcom32.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\AboutDlg.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\apr_md4.c"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\apr_md5.c"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\apr_sha1.c"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\AsyncPort.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\base64.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\BaseSocket.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\ClientSocket.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\des_crypt.c"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\des_impl.c"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\des_soft.c"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\HTTP.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\NTLM.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\PortContext.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\ServerSocket.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\SettingsDlg.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\StdAfx.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\tcpcom32.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\tcpcom32Dlg.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\TcpIpDlg.cpp"
+"C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\Thread.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSPA9.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSPAA.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/tcpcom32.pdb" /machine:I386 /out:"Release/tcpcom32.exe" 
+".\Release\AboutDlg.obj"
+".\Release\apr_md4.obj"
+".\Release\apr_md5.obj"
+".\Release\apr_sha1.obj"
+".\Release\AsyncPort.obj"
+".\Release\base64.obj"
+".\Release\BaseSocket.obj"
+".\Release\ClientSocket.obj"
+".\Release\des_crypt.obj"
+".\Release\des_impl.obj"
+".\Release\des_soft.obj"
+".\Release\HTTP.obj"
+".\Release\NTLM.obj"
+".\Release\PortContext.obj"
+".\Release\ServerSocket.obj"
+".\Release\SettingsDlg.obj"
+".\Release\StdAfx.obj"
+".\Release\tcpcom32.obj"
+".\Release\tcpcom32Dlg.obj"
+".\Release\TcpIpDlg.obj"
+".\Release\Thread.obj"
+".\Release\tcpcom32.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSPAA.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+AboutDlg.cpp
+apr_md4.c
+apr_md5.c
+apr_sha1.c
+AsyncPort.cpp
+base64.cpp
+BaseSocket.cpp
+ClientSocket.cpp
+des_crypt.c
+des_impl.c
+des_soft.c
+HTTP.cpp
+NTLM.cpp
+PortContext.cpp
+ServerSocket.cpp
+SettingsDlg.cpp
+StdAfx.cpp
+tcpcom32.cpp
+tcpcom32Dlg.cpp
+TcpIpDlg.cpp
+Thread.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+tcpcom32.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

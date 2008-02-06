@@ -1,0 +1,38 @@
+CONNECT localhost:232 HTTP/1.1
+Host: localhost:232
+User-Agent: UpdateManager/1.0
+Accept: */*
+Comm-PortName: COM3
+Comm-BaudRate: 115200
+Comm-ByteSize: 8
+Comm-Parity: NOPARITY
+Comm-StopBits: 1
+Comm-fBinary: TRUE
+Comm-fParity: TRUE
+Comm-fOutxCtsFlow: FALSE
+Comm-fOutxDsrFlow: FALSE
+Comm-fDtrControl: DTR_CONTROL_DISABLE
+Comm-fDsrSensitivity: FALSE
+Comm-fRtsControl: RTS_CONTROL_ENABLE
+Comm-fTXContinueOnXoff: FALSE
+Comm-fOutX: FALSE
+Comm-fInX: FALSE
+Comm-fErrorChar: FALSE
+Comm-fNull: FALSE
+Comm-fAbortOnError: FALSE
+Comm-XonLim: 255
+Comm-XoffLim: 255
+Comm-XonChar: 17
+Comm-XoffChar: 19
+Comm-ErrorChar: 0
+Comm-EofChar: 0
+Comm-EvtChar: 0
+
+
+CONNECT localhost:232 HTTP/1.1
+Host: localhost:232
+User-Agent: UpdateManager/1.0
+Comm-PortName: COM6
+
+
+
