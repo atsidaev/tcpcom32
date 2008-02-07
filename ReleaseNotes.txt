@@ -1,0 +1,19 @@
+
+[Version 1.0]
+
+- featured stuff...
+
+
+[Version 1.1]
+
+- add new icon "disconnected port" and update tray icon with Shell_NotifyIcon(NIM_MODIFY, &m_nid) changing both tooltip text (e.g. "TcpCOM32\r\nPorts: 4\r\nConnected: 1") and icon.
+
+- insert orangee logo into about box.
+
+- 
+
+
+
+
+
+
