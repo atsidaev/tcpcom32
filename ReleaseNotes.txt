@@ -4,9 +4,8 @@
 - featured stuff...
 
 
-[Version 1.1]
 
-DONE:
+[Version 1.0.1]
 
 - fixed control of disabled port on connect
 
@@ -15,8 +14,7 @@ DONE:
 - tray icon update with Shell_NotifyIcon(NIM_MODIFY, &m_nid) changing both tooltip text (e.g. "TcpCOM32\r\nAvailable: ...\r\nConnected: ...") and icon
 
 
-
-TODO:
+[Version 1.1]
 
 - insert orangee logo into about box.
 
