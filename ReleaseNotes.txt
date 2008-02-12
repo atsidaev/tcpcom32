@@ -6,11 +6,28 @@
 
 [Version 1.1]
 
-- add new icon "disconnected port" and update tray icon with Shell_NotifyIcon(NIM_MODIFY, &m_nid) changing both tooltip text (e.g. "TcpCOM32\r\nPorts: 4\r\nConnected: 1") and icon.
+DONE:
+
+- fixed control of disabled port on connect
+
+- added new icon "disconnected port"
+
+- tray icon update with Shell_NotifyIcon(NIM_MODIFY, &m_nid) changing both tooltip text (e.g. "TcpCOM32\r\nAvailable: ...\r\nConnected: ...") and icon
+
+
+
+TODO:
 
 - insert orangee logo into about box.
 
-- 
+- add statistics dialog with:
+	tcp/ip in bytes 
+	tcp/ip out bytes
+	tcp/ip up time
+	rs232 in bytes
+	rs232 out bytes
+
+-
 
 
 

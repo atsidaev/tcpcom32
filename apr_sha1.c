@@ -160,16 +160,12 @@ static void sha_transform(apr_sha1_ctx_t *sha_info)
     sha_info->digest[4] += E;
 }
 
-union endianTest {
-    long Long;
-    char Char[sizeof(long)];
-};
-
 static char isLittleEndian(void)
 {
-    static union endianTest u;
-    u.Long = 1;
-    return (u.Char[0] == 1);
+	long l;
+	char *p = (char *)&l;
+	l = 1;
+    return (1 == p[0]);
 }
 
 /* change endianness of data */

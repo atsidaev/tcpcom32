@@ -7,7 +7,7 @@
 </h3>
 <h3>Command Lines</h3>
 Creating command line "rc.exe /l 0x410 /fo"Release/tcpcom32.res" /d "NDEBUG" "C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\tcpcom32.rc"" 
-Creating temporary file "C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSPA9.tmp" with contents
+Creating temporary file "C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSP73.tmp" with contents
 [
 /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/tcpcom32.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
 "C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\AboutDlg.cpp"
@@ -32,8 +32,8 @@ Creating temporary file "C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSPA9.tmp" with cont
 "C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\TcpIpDlg.cpp"
 "C:\Documents and Settings\Administrator\Desktop\dev\selex-comms\prj\tcpcom32\Thread.cpp"
 ]
-Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSPA9.tmp" 
-Creating temporary file "C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSPAA.tmp" with contents
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSP73.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSP74.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:no /pdb:"Release/tcpcom32.pdb" /machine:I386 /out:"Release/tcpcom32.exe" 
 ".\Release\AboutDlg.obj"
@@ -59,7 +59,7 @@ Creating temporary file "C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSPAA.tmp" with cont
 ".\Release\Thread.obj"
 ".\Release\tcpcom32.res"
 ]
-Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSPAA.tmp"
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\IMPOST~1\Temp\RSP74.tmp"
 <h3>Output Window</h3>
 Compiling resources...
 Compiling...

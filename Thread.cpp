@@ -120,8 +120,9 @@ DWORD WINAPI ClientThreadProc(LPVOID lpParam)
 		lpTcpcom32Dlg->SendMessage(WM_SYSCOMMAND, SC_MINIMIZE, 0);
 	}
 
-	// Status line
+	// Status line & trayicon
 	lpTcpcom32Dlg->SendMessage(WM_THREAD_NOTIFY, (WPARAM)"Running", MAKELONG(CMD_SET_STATUS,0));
+	lpTcpcom32Dlg->SendMessage(WM_THREAD_NOTIFY, (WPARAM)0, MAKELONG(CMD_TRAYICON,0));
 
 	// Main loop
 	HTREEITEM htiPort = NULL;
@@ -209,8 +210,9 @@ DWORD WINAPI AcceptThreadProc(LPVOID lpParam)
 		lpTcpcom32Dlg->SendMessage(WM_SYSCOMMAND, SC_MINIMIZE, 0);
 	}
 
-	// Status line
+	// Status line && trayicon
 	lpTcpcom32Dlg->SendMessage(WM_THREAD_NOTIFY, (WPARAM)"Running", MAKELONG(CMD_SET_STATUS,0));
+	lpTcpcom32Dlg->SendMessage(WM_THREAD_NOTIFY, (WPARAM)0, MAKELONG(CMD_TRAYICON,0));
 
 	// Open server socket
 	CServerSocket serverSocket;
@@ -819,6 +821,13 @@ DWORD WINAPI PortThreadProc(LPVOID lpParam)
 	}
 	strcpy(ctx.szPortName, szPortName);
 
+	// Check port disabled
+	if (theSettingsDlg.IsPortDisabled(szPortName)) {
+		lpSocket->Close();
+		ctx.Cleanup();
+		return -1;
+	}
+
 	// Load default settings
 	if (0 == lpDcb->BaudRate) {
 		if (!theSettingsDlg.GetPortConfig(szPortName, lpDcb)) {
@@ -858,9 +867,10 @@ DWORD WINAPI PortThreadProc(LPVOID lpParam)
 	strcpy(lpszResponse, buf);
 	ctx.lpszResponse = lpszResponse;
 
-	// Update treeview
+	// Update treeview & trayicon
 	lpTcpcom32Dlg->SendMessage(WM_THREAD_NOTIFY, (WPARAM)(&ctx), MAKELONG(CMD_OPEN_PORT,0));
 	lpTcpcom32Dlg->SendMessage(WM_THREAD_NOTIFY, (WPARAM)(ctx.htiPort), MAKELONG(CMD_SET_IMAGE,BMP_PORT_OPEN));
+	lpTcpcom32Dlg->SendMessage(WM_THREAD_NOTIFY, (WPARAM)0, MAKELONG(CMD_TRAYICON,0));
 
 	// Send un-parsed data
 	if (lpExtraBytes && dwExtraLength > 0) {
@@ -950,7 +960,7 @@ DWORD WINAPI PortThreadProc(LPVOID lpParam)
 
 	}
 
-	// Update treeview
+	// Update treeview & trayicon
 	if (ctx.isDisabled = theSettingsDlg.IsPortDisabled(szPortName)) {
 		lpTcpcom32Dlg->SendMessage(WM_THREAD_NOTIFY, (WPARAM)(ctx.htiPort), 
 			MAKELONG(CMD_SET_IMAGE,BMP_PORT_DISABLED));
@@ -959,6 +969,7 @@ DWORD WINAPI PortThreadProc(LPVOID lpParam)
 			MAKELONG(CMD_SET_IMAGE,BMP_PORT_CLOSED));
 	}
 	lpTcpcom32Dlg->SendMessage(WM_THREAD_NOTIFY, (WPARAM)(&ctx), MAKELONG(CMD_CLOSE_PORT,0));
+	lpTcpcom32Dlg->SendMessage(WM_THREAD_NOTIFY, (WPARAM)0, MAKELONG(CMD_TRAYICON,0));
 
 	// Close asynch port
 	lpPort->CloseConnection();
@@ -984,6 +995,7 @@ DWORD WINAPI PortThreadProc(LPVOID lpParam)
 #undef MEMSZ_WORKGROUP
 #undef MEMSZ_WORKSTATION
 #undef MEMSZ_AUTH
+#undef MEMSZ_AUTHSCHEME
 #undef MEMSZ_CONNECTION
 }
 

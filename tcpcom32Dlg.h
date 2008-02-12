@@ -18,6 +18,7 @@
 #define CMD_OPEN_PORT 103
 #define CMD_CLOSE_PORT 104
 #define CMD_SET_STATUS 105
+#define CMD_TRAYICON 106
 
 #define BMP_ROOT 0
 #define BMP_PORT_CLOSED 1
@@ -83,6 +84,7 @@ private:
 // Implementation
 protected:
 	HICON m_hIcon;
+	HICON m_hIconErr;
 
 	// Generated message map functions
 	//{{AFX_MSG(CTcpcom32Dlg)

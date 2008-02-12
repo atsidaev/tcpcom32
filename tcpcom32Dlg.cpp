@@ -31,6 +31,7 @@ CTcpcom32Dlg::CTcpcom32Dlg(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDI_ICON_PORT);
+	m_hIconErr = AfxGetApp()->LoadIcon(IDI_ICON_PORT_ERROR);
 	m_hMainEvent = NULL;
 	m_hMainThread = NULL;
 	m_dwMainThreadId = 0;
@@ -96,7 +97,7 @@ BOOL CTcpcom32Dlg::OnInitDialog()
 	m_nid.uID = IDR_MENU_TCPCOM32;
 	m_nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
 	m_nid.uCallbackMessage = WM_ICON_NOTIFY;
-	m_nid.hIcon = m_hIcon;
+	m_nid.hIcon = AfxGetApp()->LoadIcon(IDI_ICON_PORT_ERROR);
 	strcpy(m_nid.szTip, _T( "TcpCOM32" ));
 	if(!Shell_NotifyIcon(NIM_ADD, &m_nid)) {
 		exit(-1);
@@ -396,7 +397,7 @@ LRESULT CTcpcom32Dlg::OnThreadNotification(WPARAM wParam, LPARAM lParam)
 				lpContext->htiSerial = m_treeview.InsertItem(TEXT( CAsyncPort::FormatDcb(lpContext->lpDcb, buf, 64) ), 
 					BMP_RS232_INFO, BMP_RS232_INFO, lpContext->htiPort);
 				m_treeview.SetItemData(lpContext->htiSerial, (unsigned long)lpContext);
-				lpContext->htiSocket = m_treeview.InsertItem(TEXT( lpContext->lpSocket->GetPeerName(buf, 32) ), 
+				lpContext->htiSocket = m_treeview.InsertItem(TEXT( lpContext->lpSocket->GetPeerName(buf, 64) ), 
 					BMP_TCP_INFO, BMP_TCP_INFO, lpContext->htiPort);
 				m_treeview.SetItemData(lpContext->htiSocket, (unsigned long)lpContext);
 				lpContext->htiStats = m_treeview.InsertItem(TEXT( "in=0 out=0" ), 
@@ -435,6 +436,48 @@ LRESULT CTcpcom32Dlg::OnThreadNotification(WPARAM wParam, LPARAM lParam)
 	case CMD_REFRESH:
 		UpdateData(FALSE);
 		break;
+
+	case CMD_TRAYICON:
+		{
+			int len;
+			char ava[32], run[32], dis[32];
+			run[0] = 0;
+			ava[0] = 0;
+			dis[0] = 0;
+			for (hti = m_treeview.GetChildItem(m_treeview.GetRootItem()); hti; hti = m_treeview.GetNextSiblingItem(hti)) {
+				CPortContext *lpContext = (CPortContext *)m_treeview.GetItemData(hti);
+				wsprintf(buf, " %s", m_treeview.GetItemText(hti));
+				if (lpContext) {
+					if ((len = strlen(run)) < sizeof(run) - 6) {
+						strcat(run, buf);
+					} else if (run[len-1] != '.') {
+						strcat(run, "...");
+					}
+				} else if (theSettingsDlg.IsPortDisabled(buf+1)) {
+					if ((len = strlen(dis)) < sizeof(dis) - 6) {
+						strcat(dis, buf);
+					} else if (dis[len-1] != '.') {
+						strcat(dis, "...");
+					}
+				} else {
+					if ((len = strlen(ava)) < sizeof(ava) - 6) {
+						strcat(ava, buf);
+					} else if (ava[len-1] != '.') {
+						strcat(ava, "...");
+					}
+				}
+			}
+			// update trayicon
+			wsprintf(m_nid.szTip, 
+				"TcpCOM32%s%s%s%s%s%s",
+				ava[0] ? "\r\nAvailable:" : "", ava[0] ? ava : "",
+				run[0] ? "\r\nConnected:" : "",	run[0] ? run : "",
+				dis[0] ? "\r\nDisabled:"  : "", dis[0] ? dis : "" );
+			m_nid.hIcon = run[0] ? m_hIcon : m_hIconErr;;
+			Shell_NotifyIcon(NIM_MODIFY, &m_nid);
+		}
+		break;
+
 	}
 
 	return FALSE;

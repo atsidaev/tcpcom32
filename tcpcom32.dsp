@@ -384,6 +384,10 @@ SOURCE=.\res\icon_mobile.ico
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\icon_por.ico
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\icon_port.ico
 # End Source File
 # Begin Source File
@@ -436,6 +440,14 @@ SOURCE=.\res\port_disabled.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\port_err.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\port_error.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\port_open.bmp
 # End Source File
 # Begin Source File
@@ -458,6 +470,10 @@ SOURCE=.\res\world_monitor.bmp
 # Begin Source File
 
 SOURCE=.\ReadMe.txt
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReleaseNotes.txt
 # End Source File
 # End Target
 # End Project

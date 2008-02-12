@@ -273,6 +273,7 @@ END
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_ICON_PORT           ICON    DISCARDABLE     "res\\port.ico"
+IDI_ICON_PORT_ERROR     ICON    DISCARDABLE     "res\\port_err.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -325,6 +326,7 @@ IDB_BITMAP_CONN_OPENING3 BITMAP  DISCARDABLE     "res\\conn_opening3.bmp"
 IDB_BITMAP_CONN_OPENING1 BITMAP  DISCARDABLE     "res\\conn_opening1.bmp"
 IDB_BITMAP_CONN_OPENING2 BITMAP  DISCARDABLE     "res\\conn_opening2.bmp"
 IDB_BITMAP_CONN_WARNING BITMAP  DISCARDABLE     "res\\conn_warning.bmp"
+IDB_BITMAP_PORT_ERROR   BITMAP  DISCARDABLE     "res\\port_error.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
