@@ -1040,7 +1040,7 @@ DWORD WINAPI InitializeThreadProc(LPVOID lpParam)
 
 	// Create treeview & profiles
 	for (int i = 1; i <= 16; i ++) {
-		wsprintf(buf, "COM%d", i);
+		wsprintf(buf, "\\\\.\\COM%d", i);
 		if (CAsyncPort::IsInstalled(TEXT( buf ))) {
 			if (theSettingsDlg.IsPortDisabled(buf)) {
 				hti = tree.InsertItem(TEXT( buf ), BMP_PORT_DISABLED, BMP_PORT_DISABLED, htroot);
