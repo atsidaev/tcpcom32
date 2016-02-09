@@ -219,7 +219,7 @@ BOOL CSettingsDlg::ReadConfigString(LPSTR lpszSection, LPSTR lpszName, LPSTR lps
 	wsprintf(szKeyName, TCPCOM32_REG_KEY, lpszSection);
 
 	LONG nRet = RegOpenKeyEx(
-		HKEY_LOCAL_MACHINE, 
+		HKEY_CURRENT_USER, 
 		TEXT( szKeyName ), 
 		0, 
 		KEY_READ, 
@@ -274,7 +274,7 @@ BOOL CSettingsDlg::WriteConfigString(LPSTR lpszSection, LPSTR lpszName, LPSTR lp
 
 	if (bCreate) {
 		nRet = RegCreateKeyEx(
-			HKEY_LOCAL_MACHINE,
+			HKEY_CURRENT_USER,
 			TEXT( szKeyName ),
 			0,
 			NULL,
@@ -286,7 +286,7 @@ BOOL CSettingsDlg::WriteConfigString(LPSTR lpszSection, LPSTR lpszName, LPSTR lp
 		);
 	} else {
 		nRet = RegOpenKeyEx(
-			HKEY_LOCAL_MACHINE, 
+			HKEY_CURRENT_USER,
 			TEXT( szKeyName ), 
 			KEY_WRITE, 
 			0,
