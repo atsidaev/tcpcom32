@@ -50,6 +50,7 @@ BOOL CAboutDlg::OnInitDialog()
 	m_lgpl = CString(
 		"TCPCOM32 Serial Port to TCP/IP Connection Mapper." "\r\n"
 		"Copyright (C) 2008 mepping.com" "\r\n"
+		"Copyright (C) 2015 Alexander Tsidaev (Windows 7 compatibility)" "\r\n"
 		"\r\n"
 		"This program is free software; you can redistribute it and/or" "\r\n"
 		"modify it under the terms of the GNU General Public License" "\r\n"
