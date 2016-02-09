@@ -8,7 +8,7 @@ Originally created in 2008 by Roberto Cerfogli (http://sourceforge.net/projects/
 ## Version history
 
 ### [Version 1.2]
-- fix for COM port file naming (ports COM10+ should be \\.\COM10 instead of COM10)
+- fix for COM port file naming (ports COM10+ should be \\\\.\COM10 instead of COM10)
 - settings save fix - do not try to store settings in HKLM registry branch
 
 ### [Version 1.1]
