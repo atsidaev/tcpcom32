@@ -389,7 +389,7 @@ DWORD WINAPI PortThreadProc(LPVOID lpParam)
 			}
 
 			// Re-open connection if necessary
-			if (!stricmp(lpszConnection, "close")) {
+			if (!_stricmp(lpszConnection, "close")) {
 				// Read remaining data
 				while (!bodyRead && dwExtraLength + dwHeaderLength < BUFLEN) {
 					DWORD count = lpSocket->Recv(buf + dwHeaderLength + dwExtraLength, BUFLEN - dwHeaderLength - dwExtraLength, 0, 10000);
@@ -438,13 +438,13 @@ DWORD WINAPI PortThreadProc(LPVOID lpParam)
 				BOOL useNTLMv2 = FALSE;
 				for (LPSTR scheme = lpmszAuth; *scheme; scheme += 1 + strlen(scheme)) {
 					if (strstr(scheme, "Basic") && 
-						!stricmp(lpszScheme, "Basic")) {
+						!_stricmp(lpszScheme, "Basic")) {
 						useBasic = TRUE;
 					}
 					if (strstr(scheme, "NTLM")) {
-						if (!stricmp(lpszScheme, "NTLM")) {
+						if (!_stricmp(lpszScheme, "NTLM")) {
 							useNTLM = TRUE;
-						} else if (!stricmp(lpszScheme, "NTLMv2")) {
+						} else if (!_stricmp(lpszScheme, "NTLMv2")) {
 							useNTLMv2 = TRUE;
 						}
 					}
@@ -605,7 +605,7 @@ DWORD WINAPI PortThreadProc(LPVOID lpParam)
 						}
 					}
 					// Re-open connection if necessary
-					if (!stricmp(lpszConnection, "close")) {
+					if (!_stricmp(lpszConnection, "close")) {
 						// Read remaining data
 						while (!bodyRead && dwExtraLength + dwHeaderLength < BUFLEN) {
 							DWORD count = lpSocket->Recv(buf + dwHeaderLength + dwExtraLength, BUFLEN - dwHeaderLength - dwExtraLength, 0, 10000);

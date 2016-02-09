@@ -182,15 +182,15 @@ void CSettingsDlg::UpdateControls(BOOL bSaveAndValidate)
 		m_editWorkstation.SetWindowText(GetWorkstation(buf, 32));
 		m_editWorkstation.EnableWindow(isAuthEnabled && isProxyEnabled && !isServerMode);
 		GetAuthScheme(buf, 32);
-		if (!stricmp(buf, "Basic")) {
+		if (!_stricmp(buf, "Basic")) {
 			m_radioBasic.SetCheck(BST_CHECKED);
 			m_radioNTLM.SetCheck(BST_UNCHECKED);
 			m_radioNTLMv2.SetCheck(BST_UNCHECKED);
-		} else if (!stricmp(buf, "NTLM")) {
+		} else if (!_stricmp(buf, "NTLM")) {
 			m_radioBasic.SetCheck(BST_UNCHECKED);
 			m_radioNTLM.SetCheck(BST_CHECKED);
 			m_radioNTLMv2.SetCheck(BST_UNCHECKED);
-		} else if (!stricmp(buf, "NTLMv2")) {
+		} else if (!_stricmp(buf, "NTLMv2")) {
 			m_radioBasic.SetCheck(BST_UNCHECKED);
 			m_radioNTLM.SetCheck(BST_UNCHECKED);
 			m_radioNTLMv2.SetCheck(BST_CHECKED);
@@ -335,7 +335,7 @@ BOOL CSettingsDlg::IsServerMode()
 	if (!ReadConfigString("Server Mode", "Enabled", buf, 8)) {
 		strcpy(buf, DEFAULT_SERVER_MODE);
 	}
-	return !stricmp(buf, "TRUE");
+	return !_stricmp(buf, "TRUE");
 }
 
 void CSettingsDlg::SetServerMode(BOOL isServerMode)
@@ -354,7 +354,7 @@ BOOL CSettingsDlg::IsClientMode()
 	if (!ReadConfigString("Client Mode", "Enabled", buf, 8)) {
 		strcpy(buf, DEFAULT_CLIENT_MODE);
 	}
-	return !stricmp(buf, "TRUE");
+	return !_stricmp(buf, "TRUE");
 }
 
 void CSettingsDlg::SetClientMode(BOOL isClientMode)
@@ -426,7 +426,7 @@ BOOL CSettingsDlg::IsProxyEnabled()
 	if (!ReadConfigString("HTTP Proxy", "Enabled", buf, 8)) {
 		strcpy(buf, DEFAULT_PROXY_ENABLED);
 	}
-	return !stricmp(buf, "TRUE");
+	return !_stricmp(buf, "TRUE");
 }
 
 void CSettingsDlg::SetProxyEnabled(BOOL isProxyEnabled)
@@ -468,7 +468,7 @@ BOOL CSettingsDlg::IsAuthEnabled()
 	if (!ReadConfigString("HTTP Proxy", "AuthEnabled", buf, 8)) {
 		strcpy(buf, DEFAULT_AUTH_ENABLED);
 	}
-	return !stricmp(buf, "TRUE");
+	return !_stricmp(buf, "TRUE");
 }
 
 void CSettingsDlg::SetAuthEnabled(BOOL isAuthEnabled)
@@ -550,7 +550,7 @@ BOOL CSettingsDlg::IsLogEnabled()
 	if (!ReadConfigString("Logging", "LogEnabled", buf, 8)) {
 		strcpy(buf, DEFAULT_LOG_ENABLED);
 	}
-	return !stricmp(buf, "TRUE");
+	return !_stricmp(buf, "TRUE");
 }
 
 void CSettingsDlg::SetLogEnabled(BOOL isLogEnabled)
@@ -579,7 +579,7 @@ BOOL CSettingsDlg::IsPortDisabled(LPSTR lpszPortName)
 	if(!ReadConfigString(lpszPortName, "Disabled", buf, 8)) {
 		strcpy(buf, DEFAULT_PORT_DISABLED);
 	}
-	return !stricmp(buf, "TRUE");
+	return !_stricmp(buf, "TRUE");
 }
 
 void CSettingsDlg::SetPortDisabled(LPSTR lpszPortName, BOOL isDisabled)
@@ -741,15 +741,15 @@ BOOL CSettingsDlg::GetPortConfig(LPSTR lpszPortName, DCB *lpDcb)
 	}
 
 	if (ReadConfigString(lpszPortName, "Parity", buf, 32)) {
-		if (!stricmp(buf, "NOPARITY")) {
+		if (!_stricmp(buf, "NOPARITY")) {
 			dcb.Parity = NOPARITY;
-		} else if (!stricmp(buf, "MARKPARITY")) {
+		} else if (!_stricmp(buf, "MARKPARITY")) {
 			dcb.Parity = MARKPARITY;
-		} else if (!stricmp(buf, "EVENPARITY")) {
+		} else if (!_stricmp(buf, "EVENPARITY")) {
 			dcb.Parity = EVENPARITY;
-		} else if (!stricmp(buf, "ODDPARITY")) {
+		} else if (!_stricmp(buf, "ODDPARITY")) {
 			dcb.Parity = ODDPARITY;
-		} else if (!stricmp(buf, "SPACEPARITY")) {
+		} else if (!_stricmp(buf, "SPACEPARITY")) {
 			dcb.Parity = SPACEPARITY;
 		} else {
 			return FALSE;
@@ -758,11 +758,11 @@ BOOL CSettingsDlg::GetPortConfig(LPSTR lpszPortName, DCB *lpDcb)
 	}
 
 	if (ReadConfigString(lpszPortName, "StopBits", buf, 32)) {
-		if (!stricmp(buf, "1")) {
+		if (!_stricmp(buf, "1")) {
 			dcb.StopBits = ONESTOPBIT;
-		} else if (!stricmp(buf, "1.5")) {
+		} else if (!_stricmp(buf, "1.5")) {
 			dcb.StopBits = ONE5STOPBITS;
-		} else if (!stricmp(buf, "2")) {
+		} else if (!_stricmp(buf, "2")) {
 			dcb.StopBits = TWOSTOPBITS;
 		} else {
 			return FALSE;
@@ -771,27 +771,27 @@ BOOL CSettingsDlg::GetPortConfig(LPSTR lpszPortName, DCB *lpDcb)
 	}
 
 	if (ReadConfigString(lpszPortName, "fBinary", buf, 32)) {
-		dcb.fBinary = !stricmp(buf, "TRUE");
+		dcb.fBinary = !_stricmp(buf, "TRUE");
 	}
 
 	if (ReadConfigString(lpszPortName, "fParity", buf, 32)) {
-		dcb.fParity = !stricmp(buf, "TRUE");
+		dcb.fParity = !_stricmp(buf, "TRUE");
 	}
 
 	if (ReadConfigString(lpszPortName, "fOutxCtsFlow", buf, 32)) {
-		dcb.fOutxCtsFlow = !stricmp(buf, "TRUE");
+		dcb.fOutxCtsFlow = !_stricmp(buf, "TRUE");
 	}
 
 	if (ReadConfigString(lpszPortName, "fOutxDsrFlow", buf, 32)) {
-		dcb.fOutxDsrFlow = !stricmp(buf, "TRUE");
+		dcb.fOutxDsrFlow = !_stricmp(buf, "TRUE");
 	}
 
 	if (ReadConfigString(lpszPortName, "fDtrControl", buf, 32)) {
-		if (!stricmp(buf, "DTR_CONTROL_DISABLE")) {
+		if (!_stricmp(buf, "DTR_CONTROL_DISABLE")) {
 			dcb.fDtrControl = DTR_CONTROL_DISABLE;
-		} else if (!stricmp(buf, "DTR_CONTROL_ENABLE")) {
+		} else if (!_stricmp(buf, "DTR_CONTROL_ENABLE")) {
 			dcb.fDtrControl = DTR_CONTROL_ENABLE;
-		} else if (!stricmp(buf, "DTR_CONTROL_HANDSHAKE")) {
+		} else if (!_stricmp(buf, "DTR_CONTROL_HANDSHAKE")) {
 			dcb.fDtrControl = DTR_CONTROL_HANDSHAKE;
 		} else {
 			return FALSE;
@@ -799,17 +799,17 @@ BOOL CSettingsDlg::GetPortConfig(LPSTR lpszPortName, DCB *lpDcb)
 	}
 
 	if (ReadConfigString(lpszPortName, "fDsrSensitivity", buf, 32)) {
-		dcb.fDsrSensitivity = !stricmp(buf, "TRUE");
+		dcb.fDsrSensitivity = !_stricmp(buf, "TRUE");
 	}
 
 	if (ReadConfigString(lpszPortName, "fRtsControl", buf, 32)) {
-		if (!stricmp(buf, "RTS_CONTROL_DISABLE")) {
+		if (!_stricmp(buf, "RTS_CONTROL_DISABLE")) {
 			dcb.fRtsControl = RTS_CONTROL_DISABLE;
-		} else if (!stricmp(buf, "RTS_CONTROL_ENABLE")) {
+		} else if (!_stricmp(buf, "RTS_CONTROL_ENABLE")) {
 			dcb.fRtsControl = RTS_CONTROL_ENABLE;
-		} else if (!stricmp(buf, "RTS_CONTROL_HANDSHAKE")) {
+		} else if (!_stricmp(buf, "RTS_CONTROL_HANDSHAKE")) {
 			dcb.fRtsControl = RTS_CONTROL_HANDSHAKE;
-		} else if (!stricmp(buf, "RTS_CONTROL_TOGGLE")) {
+		} else if (!_stricmp(buf, "RTS_CONTROL_TOGGLE")) {
 			dcb.fRtsControl = RTS_CONTROL_TOGGLE;
 		} else {
 			return FALSE;
@@ -817,27 +817,27 @@ BOOL CSettingsDlg::GetPortConfig(LPSTR lpszPortName, DCB *lpDcb)
 	}
 
 	if (ReadConfigString(lpszPortName, "fTXContinueOnXoff", buf, 32)) {
-		dcb.fTXContinueOnXoff = !stricmp(buf, "TRUE");
+		dcb.fTXContinueOnXoff = !_stricmp(buf, "TRUE");
 	}
 
 	if (ReadConfigString(lpszPortName, "fOutX", buf, 32)) {
-		dcb.fOutX = !stricmp(buf, "TRUE");
+		dcb.fOutX = !_stricmp(buf, "TRUE");
 	}
 
 	if (ReadConfigString(lpszPortName, "fInX", buf, 32)) {
-		dcb.fInX = !stricmp(buf, "TRUE");
+		dcb.fInX = !_stricmp(buf, "TRUE");
 	}
 
 	if (ReadConfigString(lpszPortName, "fErrorChar", buf, 32)) {
-		dcb.fErrorChar = !stricmp(buf, "TRUE");
+		dcb.fErrorChar = !_stricmp(buf, "TRUE");
 	}
 
 	if (ReadConfigString(lpszPortName, "fNull", buf, 32)) {
-		dcb.fNull = !stricmp(buf, "TRUE");
+		dcb.fNull = !_stricmp(buf, "TRUE");
 	}
 
 	if (ReadConfigString(lpszPortName, "fAbortOnError", buf, 32)) {
-		dcb.fAbortOnError = !stricmp(buf, "TRUE");
+		dcb.fAbortOnError = !_stricmp(buf, "TRUE");
 	}
 
 	if (ReadConfigString(lpszPortName, "XonLim", buf, 32)) {

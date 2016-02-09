@@ -123,37 +123,37 @@ BOOL ParseResponse(LPDWORD lpErrCode, LPSTR lpmszAuth, LPDWORD lpContentLength, 
 		if (hdr = strchr(cur, ' ')) {
 			*hdr = 0; // close header name
 			for (hdr ++; ' ' == *hdr; hdr ++); // skip white spaces
-			if (!stricmp(cur, "HTTP/1.0")) {
+			if (!_stricmp(cur, "HTTP/1.0")) {
 				if (cur = strchr(hdr, ' ')) {
 					*cur = 0;
 					nErrCode = atoi(hdr);
 				}
-			} else if (!stricmp(cur, "HTTP/1.1")) {
+			} else if (!_stricmp(cur, "HTTP/1.1")) {
 				if (cur = strchr(hdr, ' ')) {
 					*cur = 0;
 					nErrCode = atoi(hdr);
 				}
-			} else if (!stricmp(cur, "WWW-Authenticate:")) {
+			} else if (!_stricmp(cur, "WWW-Authenticate:")) {
 				if (lpmszAuth) {
 					strcpy(lpmszAuth, hdr);
 					lpmszAuth += 1 + strlen(hdr);
 					*lpmszAuth = 0;
 				}
-			} else if (!stricmp(cur, "Proxy-Authenticate:")) {
+			} else if (!_stricmp(cur, "Proxy-Authenticate:")) {
 				if (lpmszAuth) {
 					strcpy(lpmszAuth, hdr);
 					lpmszAuth += 1 + strlen(hdr);
 					*lpmszAuth = 0;
 				}
-			} else if (!stricmp(cur, "Content-Length:")) {
+			} else if (!_stricmp(cur, "Content-Length:")) {
 				if (lpContentLength) {
 					*lpContentLength = atoi(hdr);
 				}
-			} else if (!stricmp(cur, "Connection:")) {
+			} else if (!_stricmp(cur, "Connection:")) {
 				if (lpszConnection) {
 					strcpy(lpszConnection, hdr);
 				}
-			} else if (!stricmp(cur, "Proxy-Connection:")) {
+			} else if (!_stricmp(cur, "Proxy-Connection:")) {
 				if (lpszConnection) {
 					strcpy(lpszConnection, hdr);
 				}
@@ -195,9 +195,9 @@ BOOL ParseRequest(LPSTR lpszRequest, LPSTR lpszPortName, DCB *lpDcb)
 		if (hdr = strchr(cur, ' ')) {
 			*hdr = 0; // close header name
 			for (hdr ++; ' ' == *hdr; hdr ++); // skip white spaces
-			if (!stricmp(cur, "CONNECT")) {
+			if (!_stricmp(cur, "CONNECT")) {
 				dwMask |= MASK_METHOD;
-			} else if (!stricmp(cur, "User-Agent:")) {
+			} else if (!_stricmp(cur, "User-Agent:")) {
 				// nop
 			} else if (!strcmp(cur, "Accept:")) {
 				// nop
@@ -213,75 +213,75 @@ BOOL ParseRequest(LPSTR lpszRequest, LPSTR lpszPortName, DCB *lpDcb)
 				dwMask |= MASK_BYTESIZE;
 				dcb.ByteSize = atoi(hdr);
 			} else if (!strcmp(cur, PREFIX "Parity:")) {
-				if (!stricmp(hdr, "NOPARITY")) {
+				if (!_stricmp(hdr, "NOPARITY")) {
 					dcb.Parity = NOPARITY;
-				} else if (!stricmp(hdr, "MARKPARITY")) {
+				} else if (!_stricmp(hdr, "MARKPARITY")) {
 					dcb.Parity = MARKPARITY;
-				} else if (!stricmp(hdr, "EVENPARITY")) {
+				} else if (!_stricmp(hdr, "EVENPARITY")) {
 					dcb.Parity = EVENPARITY;
-				} else if (!stricmp(hdr, "ODDPARITY")) {
+				} else if (!_stricmp(hdr, "ODDPARITY")) {
 					dcb.Parity = ODDPARITY;
-				} else if (!stricmp(hdr, "SPACEPARITY")) {
+				} else if (!_stricmp(hdr, "SPACEPARITY")) {
 					dcb.Parity = SPACEPARITY;
 				} else {
 					return FALSE;
 				}
 				dwMask |= MASK_PARITY;
 			} else if (!strcmp(cur, PREFIX "StopBits:")) {
-				if (!stricmp(hdr, "1")) {
+				if (!_stricmp(hdr, "1")) {
 					dcb.StopBits = ONESTOPBIT;
-				} else if (!stricmp(hdr, "1.5")) {
+				} else if (!_stricmp(hdr, "1.5")) {
 					dcb.StopBits = ONE5STOPBITS;
-				} else if (!stricmp(hdr, "2")) {
+				} else if (!_stricmp(hdr, "2")) {
 					dcb.StopBits = TWOSTOPBITS;
 				} else {
 					return FALSE;
 				}
 				dwMask |= MASK_STOPBITS;
 			} else if (!strcmp(cur, PREFIX "fBinary:")) {
-				dcb.fBinary = !stricmp(hdr, "TRUE");
+				dcb.fBinary = !_stricmp(hdr, "TRUE");
 			} else if (!strcmp(cur, PREFIX "fParity:")) {
-				dcb.fParity = !stricmp(hdr, "TRUE");
+				dcb.fParity = !_stricmp(hdr, "TRUE");
 			} else if (!strcmp(cur, PREFIX "fOutxCtsFlow:")) {
-				dcb.fOutxCtsFlow = !stricmp(hdr, "TRUE");
+				dcb.fOutxCtsFlow = !_stricmp(hdr, "TRUE");
 			} else if (!strcmp(cur, PREFIX "fOutxDsrFlow:")) {
-				dcb.fOutxDsrFlow = !stricmp(hdr, "TRUE");
+				dcb.fOutxDsrFlow = !_stricmp(hdr, "TRUE");
 			} else if (!strcmp(cur, PREFIX "fDtrControl:")) {
-				if (!stricmp(hdr, "DTR_CONTROL_DISABLE")) {
+				if (!_stricmp(hdr, "DTR_CONTROL_DISABLE")) {
 					dcb.fDtrControl = DTR_CONTROL_DISABLE;
-				} else if (!stricmp(hdr, "DTR_CONTROL_ENABLE")) {
+				} else if (!_stricmp(hdr, "DTR_CONTROL_ENABLE")) {
 					dcb.fDtrControl = DTR_CONTROL_ENABLE;
-				} else if (!stricmp(hdr, "DTR_CONTROL_HANDSHAKE")) {
+				} else if (!_stricmp(hdr, "DTR_CONTROL_HANDSHAKE")) {
 					dcb.fDtrControl = DTR_CONTROL_HANDSHAKE;
 				} else {
 					return FALSE;
 				}
 			} else if (!strcmp(cur, PREFIX "fDsrSensitivity:")) {
-				dcb.fDsrSensitivity = !stricmp(hdr, "TRUE");
+				dcb.fDsrSensitivity = !_stricmp(hdr, "TRUE");
 			} else if (!strcmp(cur, PREFIX "RtsControl:")) {
-				if (!stricmp(hdr, "RTS_CONTROL_DISABLE")) {
+				if (!_stricmp(hdr, "RTS_CONTROL_DISABLE")) {
 					dcb.fRtsControl = RTS_CONTROL_DISABLE;
-				} else if (!stricmp(hdr, "RTS_CONTROL_ENABLE")) {
+				} else if (!_stricmp(hdr, "RTS_CONTROL_ENABLE")) {
 					dcb.fRtsControl = RTS_CONTROL_ENABLE;
-				} else if (!stricmp(hdr, "RTS_CONTROL_HANDSHAKE")) {
+				} else if (!_stricmp(hdr, "RTS_CONTROL_HANDSHAKE")) {
 					dcb.fRtsControl = RTS_CONTROL_HANDSHAKE;
-				} else if (!stricmp(hdr, "RTS_CONTROL_TOGGLE")) {
+				} else if (!_stricmp(hdr, "RTS_CONTROL_TOGGLE")) {
 					dcb.fRtsControl = RTS_CONTROL_TOGGLE;
 				} else {
 					return FALSE;
 				}
 			} else if (!strcmp(cur, PREFIX "fTXContinueOnXoff:")) {
-				dcb.fTXContinueOnXoff = !stricmp(hdr, "TRUE");
+				dcb.fTXContinueOnXoff = !_stricmp(hdr, "TRUE");
 			} else if (!strcmp(cur, PREFIX "fOutX:")) {
-				dcb.fOutX = !stricmp(hdr, "TRUE");
+				dcb.fOutX = !_stricmp(hdr, "TRUE");
 			} else if (!strcmp(cur, PREFIX "fInX:")) {
-				dcb.fInX = !stricmp(hdr, "TRUE");
+				dcb.fInX = !_stricmp(hdr, "TRUE");
 			} else if (!strcmp(cur, PREFIX "fErrorChar:")) {
-				dcb.fErrorChar = !stricmp(hdr, "TRUE");
+				dcb.fErrorChar = !_stricmp(hdr, "TRUE");
 			} else if (!strcmp(cur, PREFIX "fNull:")) {
-				dcb.fNull = !stricmp(hdr, "TRUE");
+				dcb.fNull = !_stricmp(hdr, "TRUE");
 			} else if (!strcmp(cur, PREFIX "fAbortOnError:")) {
-				dcb.fAbortOnError = !stricmp(hdr, "TRUE");
+				dcb.fAbortOnError = !_stricmp(hdr, "TRUE");
 			} else if (!strcmp(cur, PREFIX "XonLim:")) {
 				dcb.XonLim = atoi(hdr);
 			} else if (!strcmp(cur, PREFIX "XoffLim:")) {

@@ -362,7 +362,8 @@ int CAsyncPort::ParseSetupString(const char * pszSetupString, DWORD * pdwBaudRat
 	char szBuffer[16];
 	strcpy(szBuffer, pszSetupString);
 
-	for (char * pszTmp = szBuffer; *pszTmp; pszTmp ++) {
+	char* pszTmp;
+	for (pszTmp = szBuffer; *pszTmp; pszTmp ++) {
 		if (*pszTmp == nSeparator) {
 			*pszTmp = '\0';
 		}
@@ -422,15 +423,15 @@ int CAsyncPort::ParseSetupString(const char * pszSetupString, DWORD * pdwBaudRat
 	// parity
 
 	pszTmp += 1 + strlen(pszTmp);
-	if (!stricmp(pszTmp, "E")) {
+	if (!_stricmp(pszTmp, "E")) {
 		*pbParity = EVENPARITY;
-	} else if (!stricmp(pszTmp, "M")) {
+	} else if (!_stricmp(pszTmp, "M")) {
 		*pbParity = MARKPARITY;
-	} else if (!stricmp(pszTmp, "N")) {
+	} else if (!_stricmp(pszTmp, "N")) {
 		*pbParity = NOPARITY;
-	} else if (!stricmp(pszTmp, "O")) {
+	} else if (!_stricmp(pszTmp, "O")) {
 		*pbParity = ODDPARITY;
-	} else if (!stricmp(pszTmp, "S")) {
+	} else if (!_stricmp(pszTmp, "S")) {
 		*pbParity = SPACEPARITY;
 	} else {
 		return -1;

@@ -8,3 +8,4 @@
 /.vs/tcpcom32/v14/*.suo
 /ipch/*
 /x64/*
+/Debug/*
