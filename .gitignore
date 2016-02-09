@@ -3,3 +3,8 @@
 /*.opt
 /*.sdf
 /*.plg
+/*.user
+/*.opensdf
+/.vs/tcpcom32/v14/*.suo
+/ipch/*
+/x64/*

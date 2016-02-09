@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AboutDlg.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="apr_md4.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="apr_md5.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="apr_sha1.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="AsyncPort.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="base64.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSocket.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSocket.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="des_crypt.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="des_impl.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="des_soft.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="HTTP.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="NTLM.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="PortContext.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerSocket.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsDlg.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="tcpcom32.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="tcpcom32Dlg.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpIpDlg.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AboutDlg.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="apr_md4.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="apr_md5.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="apr_sha1.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="AsyncPort.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="base64.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSocket.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientSocket.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="des_crypt.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="HTTP.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="NTLM.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="PortContext.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="rpc_des.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerSocket.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsDlg.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="tcpcom32.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="tcpcom32Dlg.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpIpDlg.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{edf54a56-b162-4f8f-901a-bb617015da68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{98d946d6-7b08-4d3a-b1c1-b880f59d18fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{52b8b9e5-ee68-4233-995f-d0a08cb3989b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="tcpcom32.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
